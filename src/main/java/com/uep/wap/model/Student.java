@@ -13,7 +13,6 @@ public class Student{
     @Column(name ="points")
     private Integer points;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     public void setId(long id){
         this.id = id;
     }
