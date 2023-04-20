@@ -1,6 +1,5 @@
 package com.uep.wap.controller;
 
-import com.uep.wap.model.Student;
 import com.uep.wap.model.User;
 import com.uep.wap.service.UsersService;
 import org.springframework.web.bind.annotation.GetMapping;
