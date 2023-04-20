@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User{
 
     @Id
@@ -24,23 +24,23 @@ public class User{
     private String first_name;
 
     @Column(name = "last_name", length = 50)
-    private String last_name;
+    private String lastName;
 
     @Column(name = "telephone", length = 15)
     private String telephone;
 
     @Column(name = "created_at")
-    private Timestamp created_at;
+    private Timestamp createdAt;
 
     @Column(name = "modified_at")
-    private Timestamp modified_at;
+    private Timestamp modifiedAt;
+
+    public User() {
+    }
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public void setId(long id){
         this.id = id;
-    }
-
-    public User() {
     }
 
     public long getId() {
@@ -80,11 +80,11 @@ public class User{
     }
 
     public String getLast_name() {
-        return last_name;
+        return lastName;
     }
 
     public void setLast_name(String last_name) {
-        this.last_name = last_name;
+        this.lastName = last_name;
     }
 
     public String getTelephone() {
@@ -96,18 +96,18 @@ public class User{
     }
 
     public Timestamp getCreated_at() {
-        return created_at;
+        return createdAt;
     }
 
     public void setCreated_at(Timestamp created_at) {
-        this.created_at = created_at;
+        this.createdAt = created_at;
     }
 
     public Timestamp getModified_at() {
-        return modified_at;
+        return modifiedAt;
     }
 
     public void setModified_at(Timestamp modified_at) {
-        this.modified_at = modified_at;
+        this.modifiedAt = modified_at;
     }
 }
