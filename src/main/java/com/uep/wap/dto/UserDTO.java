@@ -8,8 +8,10 @@ public class UserDTO {
     private String username;
     private String password;
     private String email;
-    private String first_name;
-    private String last_name;
+
+    private String firstName;
+
+    private String lastName;
     private String telephone;
     private Timestamp created_at;
     private Timestamp modified_at;
@@ -47,19 +49,19 @@ public class UserDTO {
     }
 
     public String getFirst_name() {
-        return first_name;
+        return firstName;
     }
 
     public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+        this.firstName = first_name;
     }
 
     public String getLast_name() {
-        return last_name;
+        return lastName;
     }
 
     public void setLast_name(String last_name) {
-        this.last_name = last_name;
+        this.lastName = last_name;
     }
 
     public String getTelephone() {

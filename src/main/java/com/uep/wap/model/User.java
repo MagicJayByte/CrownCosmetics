@@ -21,7 +21,7 @@ public class User{
     private String email;
 
     @Column(name = "first_name", length = 50)
-    private String first_name;
+    private String firstName;
 
     @Column(name = "last_name", length = 50)
     private String lastName;
@@ -72,11 +72,11 @@ public class User{
     }
 
     public String getFirst_name() {
-        return first_name;
+        return firstName;
     }
 
     public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+        this.firstName = first_name;
     }
 
     public String getLast_name() {
