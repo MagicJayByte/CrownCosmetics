@@ -10,7 +10,7 @@ public class ShoppingSession {
         @Column(name = "sesssion_id")
         private long sessionId;
         @Column(name = "total")
-        private Float total;
+        private float total;
         @Column(name = "created_at")
         private Timestamp createdAt;
         @Column(name = "modified_at")

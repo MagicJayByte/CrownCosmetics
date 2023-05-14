@@ -2,20 +2,13 @@ package com.uep.wap.dto;
 
 public class ProductDTO {
 
-    private long product_id;
     private String name;
     private String desc;
     private String sku;
     private float price;
 
 
-    public long getProduct_id() {
-        return product_id;
-    }
 
-    public void setProduct_id(long product_id) {
-        this.product_id = product_id;
-    }
 
     public String getName() {
         return name;
