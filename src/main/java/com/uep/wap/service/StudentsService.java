@@ -6,8 +6,6 @@ import com.uep.wap.dto.StudentDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class StudentsService
 {
@@ -20,7 +18,7 @@ public class StudentsService
         student.setName(studentDTO.getName());
         student.setPoints(studentDTO.getPoints());
         studentRepository.save(student);
-        System.out.println("Students added!");
+        System.out.println("Student added!");
     }
 
     public Iterable<Student> getAllStudents() {
