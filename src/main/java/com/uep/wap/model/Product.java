@@ -3,6 +3,7 @@ package com.uep.wap.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name="product")
@@ -29,6 +30,22 @@ public class Product {
 
     @Column(name="modified_at")
     private Timestamp modifiedAt;
+
+    @OneToOne
+    @JoinColumn(name = "cart_item_id")
+    private CartItem cartItem;
+
+    @ManyToOne
+    @JoinColumn(name = "inventory_id")
+    private ProductInventory productInventory;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "prod_disc", joinColumns = @JoinColumn(name = "disc_id"), inverseJoinColumns = @JoinColumn(name = "prod_id"))
+    private List<Discount> discounts;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "prod_cat", joinColumns = @JoinColumn(name = "prod_id"), inverseJoinColumns = @JoinColumn(name = "cat_id"))
+    private List<ProductCategory> productCategories;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public void setId(long id) {this.prodId = id;}

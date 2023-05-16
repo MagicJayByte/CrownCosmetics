@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
 @RestController
 @RequestMapping(path = "/cart-item")
 public class CartItemController {
@@ -18,5 +21,7 @@ public class CartItemController {
 
     @GetMapping(path="CartItems")
     public Iterable<CartItem> getAllCartItems() {return cartItemService.getAllCartItems();}
+
+
 
 }

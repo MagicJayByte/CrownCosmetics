@@ -3,6 +3,7 @@ package com.uep.wap.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "cart_item")
@@ -11,6 +12,8 @@ public class CartItem {
     @Id
     @Column(name="cart_item_id")
     private long cartItemId;
+
+
 
     @Column(name="quanity")
     private int quantity;
@@ -21,9 +24,20 @@ public class CartItem {
     @Column(name="modified_at")
     private Timestamp modifiedAt;
 
+    @OneToOne(mappedBy = "cart_item", cascade = CascadeType.ALL)
+    private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = "session_id")
+    private ShoppingSession shoppingSession; 
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public void setId(long id) { this.cartItemId = id;
+
     }
+
+
+
 
     public CartItem() {
 

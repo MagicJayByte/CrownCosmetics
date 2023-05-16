@@ -3,6 +3,7 @@ package com.uep.wap.model;
 import javax.persistence.*;
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name="cat_id")
@@ -25,6 +26,8 @@ public class ProductCategory {
     @Column(name="modified_at")
     private Timestamp modifiedAt;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Product> products;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public void setId(long id) {this.catId = id;}
