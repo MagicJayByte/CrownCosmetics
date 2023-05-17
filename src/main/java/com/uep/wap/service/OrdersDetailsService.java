@@ -1,6 +1,6 @@
 package com.uep.wap.service;
 
-import com.uep.wap.dto.OrdersDetailsDataDTO;
+import com.uep.wap.dto.OrderDetailsDTO;
 import com.uep.wap.model.OrderDetails;
 import com.uep.wap.repository.OrderDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ public class OrdersDetailsService {
     @Autowired
     private OrderDetailsRepository orderDetailsRepository;
 
-    public void addOrderDetails(OrdersDetailsDataDTO ordersDetailsDataDTO) {
+    public void addOrderDetails(OrderDetailsDTO orderDetailsDTO) {
         OrderDetails orderDetails = new OrderDetails();
         orderDetails.setTotalPrice(orderDetails.getTotalPrice());
         orderDetails.setCreatedAt(orderDetails.getCreatedAt());
