@@ -24,7 +24,7 @@ public class ProductInventory {
     @Column(name="deleted_at")
     private Timestamp deletedAt;
 
-    @OneToMany(mappedBy = "product_inventory", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "productInventory", cascade = CascadeType.ALL)
     private List<Product> products;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
