@@ -1,8 +1,6 @@
 package com.uep.wap.service;
 
-import com.uep.wap.dto.StudentDTO;
 import com.uep.wap.dto.UserAddressDTO;
-import com.uep.wap.model.Student;
 import com.uep.wap.model.UserAddress;
 import com.uep.wap.repository.UserAddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
