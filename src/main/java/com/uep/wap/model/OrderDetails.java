@@ -15,7 +15,7 @@ import java.util.List;
 public class OrderDetails {
 
     @Id
-    @Column(name = "order_id")
+    @Column(name = "order_details_id")
     private long id;
 
     @Column(name = "price", precision = 6, scale = 2)
