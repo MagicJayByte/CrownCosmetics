@@ -35,6 +35,10 @@ public class Product {
     @JoinColumn(name = "cart_item_id")
     private CartItem cartItem;
 
+    @OneToOne
+    @JoinColumn(name = "order_id")
+    private OrderItems orderItem;
+
     @ManyToOne
     @JoinColumn(name = "inventory_id")
     private ProductInventory productInventory;

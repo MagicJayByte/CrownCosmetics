@@ -28,6 +28,9 @@ public class OrderItems {
     @Column(name = "modified_at")
     private Date modified_at;
 
+    @OneToOne(mappedBy = "order_item",cascade = CascadeType.ALL , optional = false)
+    private Product product;
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public void setOrder_id(long order_id){
         this.order_id = order_id;
