@@ -2,6 +2,7 @@ package com.uep.wap.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name="discount")
@@ -32,6 +33,8 @@ public class Discount {
     @Column(name="active")
     private boolean active;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Product> products;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public void setId(long id) {this.discId = id;

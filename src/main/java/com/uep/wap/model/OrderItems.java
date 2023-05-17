@@ -28,10 +28,6 @@ public class OrderItems {
     @Column(name = "modified_at")
     private Date modified_at;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private OrderDetails orderDetails;
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public void setOrder_id(long order_id){
         this.order_id = order_id;

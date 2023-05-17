@@ -2,6 +2,7 @@ package com.uep.wap.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name="product_inventory")
@@ -23,6 +24,8 @@ public class ProductInventory {
     @Column(name="deleted_at")
     private Timestamp deletedAt;
 
+    @OneToMany(mappedBy = "product_inventory", cascade = CascadeType.ALL)
+    private List<Product> products;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public void setId(long id) {this.inventoryId = id;}

@@ -12,7 +12,7 @@ public class CartItem {
     @Column(name="cart_item_id")
     private long cartItemId;
 
-    @Column(name="quantity")
+    @Column(name="quanity")
     private int quantity;
 
     @Column(name="created_at")
