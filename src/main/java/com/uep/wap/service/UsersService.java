@@ -14,8 +14,8 @@ public class UsersService {
 
     public void addUser(UserDTO userDTO) {
         User user = new User();
-        user.setFirst_name(userDTO.getFirst_name());
-        user.setLast_name(userDTO.getLast_name());
+        user.setFirstName(userDTO.getFirst_name());
+        user.setLastName(userDTO.getLast_name());
         userRepository.save(user);
         System.out.println("User added!");
     }

@@ -18,22 +18,22 @@ public class UserPayment {
     private long user_payment_id;
 
     @Column(name = "payment_type")
-    private String payment_type;
+    private String paymentType;
 
     @Column(name = "provider")
     private String provider;
 
     @Column(name = "account_number")
-    private String account_number;
+    private String accountNumber;
 
     @Column(name = "IBAN_number")
-    private String IBAN_number;
+    private String IBANNumber;
 
     @Column(name = "card_number")
-    private String card_number;
+    private String cardNumber;
 
     @Column(name = "expire_date")
-    private Date expire_date;
+    private Date expireDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

@@ -14,12 +14,12 @@ public class UsersPaymentService {
     //dodanie przeslanych przez uzytkowniak danych(DTO) do bazy danych
     public void addUserPayment(UserPaymentDTO userPaymentDTO) {
         UserPayment userPayment = new UserPayment();
-        userPayment.setPayment_type(userPaymentDTO.getPayment_type());
+        userPayment.setPaymentType(userPaymentDTO.getPayment_type());
         userPayment.setProvider(userPaymentDTO.getProvider());
-        userPayment.setAccount_number(userPaymentDTO.getAccount_number());
-        userPayment.setIBAN_number(userPaymentDTO.getIBAN_number());
-        userPayment.setCard_number(userPaymentDTO.getCard_number());
-        userPayment.setExpire_date(userPaymentDTO.getExpire_date());
+        userPayment.setAccountNumber(userPaymentDTO.getAccount_number());
+        userPayment.setIBANNumber(userPaymentDTO.getIBAN_number());
+        userPayment.setCardNumber(userPaymentDTO.getCard_number());
+        userPayment.setExpireDate(userPaymentDTO.getExpire_date());
         userPaymentRepository.save(userPayment);
         System.out.println("Payment added!");
     }
