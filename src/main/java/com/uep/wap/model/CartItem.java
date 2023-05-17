@@ -36,8 +36,6 @@ public class CartItem {
 
     @ManyToOne
     @JoinColumn(name = "session_id")
-    private ShoppingSession shoppingSession; 
-
-    public CartItem() {}
+    private ShoppingSession shoppingSession;
     
 }
