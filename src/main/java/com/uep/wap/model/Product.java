@@ -11,6 +11,7 @@ public class Product {
 
     @Id
     @Column(name="prod_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long prodId;
 
     @Column(name="name")
@@ -51,64 +52,6 @@ public class Product {
     @JoinTable(name = "prod_cat", joinColumns = @JoinColumn(name = "prod_id"), inverseJoinColumns = @JoinColumn(name = "cat_id"))
     private List<ProductCategory> productCategories;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public void setId(long id) {this.prodId = id;}
-
     public Product() { }
 
-    public long getProdId() {
-        return prodId;
-    }
-
-    public void setProdId(long prodId) {
-        this.prodId = prodId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public String getSku() {
-        return sku;
-    }
-
-    public void setSku(String sku) {
-        this.sku = sku;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Timestamp getModifiedAt() {
-        return modifiedAt;
-    }
-
-    public void setModifiedAt(Timestamp modifiedAt) {
-        this.modifiedAt = modifiedAt;
-    }
 }

@@ -8,7 +8,8 @@ import java.util.List;
 @Table(name = "shopping_session")
 public class ShoppingSession {
         @Id
-        @Column(name = "sesssion_id")
+        @Column(name = "session_id")
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private long sessionId;
         @Column(name = "total")
         private float total;
@@ -24,50 +25,8 @@ public class ShoppingSession {
         @JoinColumn(name = "user_id")
         private User user;
 
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        public void setId(long id) {
-            this.sessionId = id;
-        }
-
-        public long getId() {
-            return sessionId;
-        }
-
         public ShoppingSession() {
-
         }
 
-        public Timestamp getModifiedAt() {
-                return modifiedAt;
-        }
-
-        public void setModifiedAt(Timestamp modifiedAt) {
-                this.modifiedAt = modifiedAt;
-
-        }
-
-        public long getSessionId() {
-                return sessionId;
-        }
-
-        public void setSessionId(long sessionId) {
-                this.sessionId = sessionId;
-        }
-
-        public Float getTotal() {
-                return total;
-        }
-
-        public void setTotal(Float total) {
-                this.total = total;
-        }
-
-        public Timestamp getCreatedAt() {
-                return createdAt;
-        }
-
-        public void setCreatedAt(Timestamp createdAt) {
-                this.createdAt = createdAt;
-        }
 }
 

@@ -10,6 +10,7 @@ public class ProductInventory {
 
     @Id
     @Column(name="inventory_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long inventoryId;
 
     @Column(name="quantity")
@@ -27,49 +28,7 @@ public class ProductInventory {
     @OneToMany(mappedBy = "productInventory", cascade = CascadeType.ALL)
     private List<Product> products;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public void setId(long id) {this.inventoryId = id;}
-
-    public ProductInventory() { }
-
-    public long getInventoryId() {
-        return inventoryId;
-    }
-
-    public void setInventoryId(long inventoryId) {
-        this.inventoryId = inventoryId;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Timestamp getModifiedAt() {
-        return modifiedAt;
-    }
-
-    public void setModifiedAt(Timestamp modifiedAt) {
-        this.modifiedAt = modifiedAt;
-    }
-
-    public Timestamp getDeletedAt() {
-        return deletedAt;
-    }
-
-    public void setDeletedAt(Timestamp deletedAt) {
-        this.deletedAt = deletedAt;
+    public ProductInventory() {
     }
 }
 

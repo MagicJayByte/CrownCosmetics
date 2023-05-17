@@ -16,6 +16,7 @@ public class OrderDetails {
 
     @Id
     @Column(name = "order_details_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "price", precision = 6, scale = 2)
@@ -37,11 +38,5 @@ public class OrderDetails {
     @OneToMany(mappedBy = "orderDetails", cascade = CascadeType.ALL)
     private List<OrderItems> orderItems;
 
-    public OrderDetails() {
-    }
-
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public void setId(long id){
-        this.id = id;
-    }
+    public OrderDetails() {}
 }

@@ -15,6 +15,7 @@ public class PaymentDetails {
 
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "amount")
@@ -39,8 +40,4 @@ public class PaymentDetails {
     public PaymentDetails() {
     }
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public void setId(long id){
-        this.id = id;
-    }
 }

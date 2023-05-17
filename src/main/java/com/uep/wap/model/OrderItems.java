@@ -17,6 +17,7 @@ public class OrderItems {
 
     @Id
     @Column(name = "order_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long order_id;
 
     @Column(name = "quantity")
@@ -35,8 +36,4 @@ public class OrderItems {
     @JoinColumn(name = "order_details_id")
     private OrderDetails orderDetails;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public void setOrder_id(long order_id){
-        this.order_id = order_id;
-    }
 }

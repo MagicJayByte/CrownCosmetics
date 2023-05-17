@@ -14,6 +14,7 @@ public class UserPayment {
 
     @Id
     @Column(name = "user_payment_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long user_payment_id;
 
     @Column(name = "payment_type")
@@ -40,12 +41,6 @@ public class UserPayment {
 
     public UserPayment() {
     }
-
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public void setId(long user_payment_id){
-        this.user_payment_id = user_payment_id;
-    }
-
 
 }
 

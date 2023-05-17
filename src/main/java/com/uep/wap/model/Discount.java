@@ -10,6 +10,7 @@ public class Discount {
 
     @Id
     @Column(name="disc_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long discId;
 
     @Column(name="name")
@@ -36,74 +37,7 @@ public class Discount {
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Product> products;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public void setId(long id) {this.discId = id;
-    }
 
     public Discount() {}
 
-
-    public long getDiscId() {
-        return discId;
-    }
-
-    public void setDiscId(long discId) {
-        this.discId = discId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Timestamp getModifiedAt() {
-        return modifiedAt;
-    }
-
-    public void setModifiedAt(Timestamp modifiedAt) {
-        this.modifiedAt = modifiedAt;
-    }
-
-    public Timestamp getDeletedAt() {
-        return deletedAt;
-    }
-
-    public void setDeletedAt(Timestamp deletedAt) {
-        this.deletedAt = deletedAt;
-    }
-
-    public float getDiscPercent() {
-        return discPercent;
-    }
-
-    public void setDiscPercent(float discPercent) {
-        this.discPercent = discPercent;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
 }

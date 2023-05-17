@@ -11,6 +11,7 @@ public class CartItem {
 
     @Id
     @Column(name="cart_item_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long cartItemId;
 
 
@@ -31,47 +32,6 @@ public class CartItem {
     @JoinColumn(name = "session_id")
     private ShoppingSession shoppingSession; 
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public void setId(long id) { this.cartItemId = id;
-
-    }
-
-
-
-
-    public CartItem() {
-
-    }
-
-    public long getCartItemId() {
-        return cartItemId;
-    }
-
-    public void setCartItemId(long cartItemId) {
-        this.cartItemId = cartItemId;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Timestamp getModifiedAt() {
-        return modifiedAt;
-    }
-
-    public void setModifiedAt(Timestamp modifiedAt) {
-        this.modifiedAt = modifiedAt;
-    }
+    public CartItem() {}
+    
 }
