@@ -17,8 +17,12 @@ public class ShoppingSession {
         @Column(name = "modified_at")
         private Timestamp modifiedAt;
 
-        @OneToMany(mappedBy = "shopping_session", cascade = CascadeType.ALL)
+        @OneToMany(mappedBy = "shoppingSession", cascade = CascadeType.ALL)
         private List<CartItem> cartItems;
+
+        @OneToOne
+        @JoinColumn(name = "user_id")
+        private User user;
 
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         public void setId(long id) {

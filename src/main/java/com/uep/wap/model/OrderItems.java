@@ -31,6 +31,10 @@ public class OrderItems {
     @OneToOne(mappedBy = "orderItem",cascade = CascadeType.ALL , optional = false)
     private Product product;
 
+    @ManyToOne
+    @JoinColumn(name = "order_details_id")
+    private OrderDetails orderDetails;
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public void setOrder_id(long order_id){
         this.order_id = order_id;
