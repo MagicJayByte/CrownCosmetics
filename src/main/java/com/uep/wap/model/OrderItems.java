@@ -28,9 +28,8 @@ public class OrderItems {
     @Column(name = "modified_at")
     private Date modified_at;
 
-    @ManyToOne
-    @JoinColumn(name = "order_details_id")
-    private OrderDetails orderDetails;
+    @OneToOne(mappedBy = "orderItem",cascade = CascadeType.ALL , optional = false)
+    private Product product;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public void setOrder_id(long order_id){
