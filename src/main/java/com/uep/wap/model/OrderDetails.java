@@ -6,7 +6,7 @@ import lombok.Setter;
 import lombok.Getter;
 
 import java.sql.Date;
-import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "order_details")
@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 public class OrderDetails {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "order_id")
     private long id;
 
     @Column(name = "price", precision = 6, scale = 2)
@@ -26,6 +26,16 @@ public class OrderDetails {
 
     @Column(name = "modified_at")
     private Date modifiedAt;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @OneToOne(mappedBy = "orderDetails", cascade = CascadeType.ALL)
+    private PaymentDetails paymentDetails;
+
+    @OneToMany(mappedBy = "orderDetails", cascade = CascadeType.ALL)
+    private List<OrderItems> orderItems;
 
     public OrderDetails() {
     }

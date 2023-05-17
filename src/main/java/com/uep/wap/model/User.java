@@ -2,13 +2,15 @@ package com.uep.wap.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
 public class User{
 
     @Id
-    @Column(name = "id")
+    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "username", length = 50)
@@ -35,10 +37,19 @@ public class User{
     @Column(name = "modified_at")
     private Timestamp modifiedAt;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private UserAddress userAddress;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<UserPayment> userPayments;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<OrderDetails> ordersDetails;
+
     public User() {
     }
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     public void setId(long id){
         this.id = id;
     }

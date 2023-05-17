@@ -32,6 +32,10 @@ public class PaymentDetails {
     @Column(name = "modified_at")
     private Date modifiedAt;
 
+    @OneToOne
+    @JoinColumn(name = "order_id")
+    private OrderDetails orderDetails;
+
     public PaymentDetails() {
     }
 

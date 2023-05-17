@@ -34,6 +34,10 @@ public class UserPayment {
     @Column(name = "expire_date")
     private Date expire_date;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public UserPayment() {
     }
 

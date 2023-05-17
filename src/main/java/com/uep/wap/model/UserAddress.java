@@ -8,6 +8,7 @@ public class UserAddress {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "street", length = 60)
@@ -31,7 +32,10 @@ public class UserAddress {
     @Column(name = "mobile", length = 15)
     private String mobile;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public void setId(long id){
         this.id = id;
     }
