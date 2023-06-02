@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,8 +18,6 @@ public class CartItem {
     @Column(name="cart_item_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long cartItemId;
-
-
 
     @Column(name="quanity")
     private int quantity;
