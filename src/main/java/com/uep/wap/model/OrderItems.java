@@ -29,7 +29,7 @@ public class OrderItems {
     @Column(name = "modified_at")
     private Date modified_at;
 
-    @OneToOne(mappedBy = "orderItem",cascade = CascadeType.ALL , optional = false)
+    @OneToOne(mappedBy = "orderItem",cascade = CascadeType.ALL)
     private Product product;
 
     @ManyToOne

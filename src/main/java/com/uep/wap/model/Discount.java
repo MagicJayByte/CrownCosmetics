@@ -1,7 +1,6 @@
 package com.uep.wap.model;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -21,7 +20,7 @@ public class Discount {
     @Column(name="name")
     private String name;
 
-    @Column(name="desc")
+    @Column(name="description")
     private String desc;
 
     @Column(name="created_at")
@@ -39,7 +38,7 @@ public class Discount {
     @Column(name="active")
     private boolean active;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "discounts")
     private List<Product> products;
 
 

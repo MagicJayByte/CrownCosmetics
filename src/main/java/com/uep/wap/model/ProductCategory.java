@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name="cat_id")
+@Table(name="product_category")
 
 public class ProductCategory {
 
@@ -22,7 +22,7 @@ public class ProductCategory {
     @Column(name="name")
     private String name;
 
-    @Column(name="desc")
+    @Column(name="description")
     private String desc;
 
     @Column(name="created_at")
@@ -31,7 +31,7 @@ public class ProductCategory {
     @Column(name="modified_at")
     private Timestamp modifiedAt;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "productCategories")
     private List<Product> products;
 
 

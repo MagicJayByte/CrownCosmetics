@@ -21,7 +21,7 @@ public class Product {
     @Column(name="name")
     private String name;
 
-    @Column(name="desc")
+    @Column(name="description")
     private String desc;
 
     @Column(name="SKU")
@@ -49,7 +49,7 @@ public class Product {
     private ProductInventory productInventory;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "prod_disc", joinColumns = @JoinColumn(name = "disc_id"), inverseJoinColumns = @JoinColumn(name = "prod_id"))
+    @JoinTable(name = "prod_disc", joinColumns = @JoinColumn(name = "prod_id"), inverseJoinColumns = @JoinColumn(name = "disc_id"))
     private List<Discount> discounts;
 
     @ManyToMany(cascade = CascadeType.ALL)
