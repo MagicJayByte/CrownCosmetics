@@ -15,9 +15,9 @@ public class UsersAddressesService {
     public void addUserAddress(UserAddressDTO userAddressDTO) {
         UserAddress userAddress = new UserAddress();
         userAddress.setStreet(userAddressDTO.getStreet());
-        userAddress.setZip(userAddressDTO.getZip());
         userAddress.setCity(userAddressDTO.getCity());
         userAddress.setState(userAddressDTO.getState());
+        userAddress.setZip(userAddressDTO.getZip());
         userAddress.setCountry(userAddressDTO.getCountry());
         userAddress.setPhone(userAddressDTO.getPhone());
         userAddress.setMobile(userAddressDTO.getMobile());

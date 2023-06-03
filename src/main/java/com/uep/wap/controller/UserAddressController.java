@@ -1,10 +1,9 @@
 package com.uep.wap.controller;
 
+import com.uep.wap.dto.UserAddressDTO;
 import com.uep.wap.model.UserAddress;
 import com.uep.wap.service.UsersAddressesService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/user-address")
@@ -16,9 +15,14 @@ public class UserAddressController {
         this.usersAddressesService = usersAddressesService;
     }
 
-    @GetMapping(path = "UseresAddresses")
+    @GetMapping(path = "/user-addresses")
     public Iterable<UserAddress> getAllUsersAddresses(){
         return usersAddressesService.getAllUsersAddresses();
+    }
+
+    @PostMapping(path = "/add-user-address")
+    public void addUserAddress(@RequestBody UserAddressDTO userAddress){
+        usersAddressesService.addUserAddress(userAddress);
     }
 
 }
