@@ -3,12 +3,16 @@ package com.uep.wap.controller;
 import com.uep.wap.dto.UserDTO;
 import com.uep.wap.model.User;
 import com.uep.wap.service.UsersService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/user")
 public class UserController {
 
+    @Autowired
     private final UsersService usersService;
 
     public UserController(UsersService usersService) {
@@ -25,8 +29,8 @@ public class UserController {
         usersService.addUser(user);
     }
 
-    @DeleteMapping (path = "delete-user-data")
-    public void deleteUserData(@RequestParam Long id) {
+    @DeleteMapping("/delete-user-data/{id}")
+    public void deleteUser(@PathVariable long id) {
         usersService.deleteUser(id);
     }
 }

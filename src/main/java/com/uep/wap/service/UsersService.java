@@ -27,8 +27,9 @@ public class UsersService {
     public Iterable<User> getAllUsers() {
         return userRepository.findAll();
     }
-    public void deleteUser(Long id) {
-        userRepository.deleteById(Math.toIntExact(id));
+    public void deleteUser(long id) {
+        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+        userRepository.delete(user);
         System.out.println("User deleted!");
     }
 }
