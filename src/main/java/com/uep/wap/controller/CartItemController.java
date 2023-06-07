@@ -3,6 +3,7 @@ package com.uep.wap.controller;
 import com.uep.wap.model.CartItem;
 import com.uep.wap.service.CartItemService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,8 +20,9 @@ public class CartItemController {
         this.cartItemService = cartItemService;
     }
 
-    @GetMapping(path="CartItems")
+    @GetMapping(path="cart-items")
     public Iterable<CartItem> getAllCartItems() {return cartItemService.getAllCartItems();}
+
 
 
 

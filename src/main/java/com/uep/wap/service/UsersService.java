@@ -14,8 +14,12 @@ public class UsersService {
 
     public void addUser(UserDTO userDTO) {
         User user = new User();
-        user.setFirstName(userDTO.getFirst_name());
-        user.setLastName(userDTO.getLast_name());
+        user.setFirstName(userDTO.getFirstName());
+        user.setLastName(userDTO.getLastName());
+        user.setUsername(userDTO.getUsername());
+        user.setPassword(userDTO.getPassword());
+        user.setEmail(userDTO.getEmail());
+        user.setTelephone(userDTO.getTelephone());
         userRepository.save(user);
         System.out.println("User added!");
     }
