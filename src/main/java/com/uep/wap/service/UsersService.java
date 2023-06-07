@@ -23,4 +23,8 @@ public class UsersService {
     public Iterable<User> getAllUsers() {
         return userRepository.findAll();
     }
+    public void deleteUser(Long id) {
+        userRepository.deleteById(Math.toIntExact(id));
+        System.out.println("User deleted!");
+    }
 }
