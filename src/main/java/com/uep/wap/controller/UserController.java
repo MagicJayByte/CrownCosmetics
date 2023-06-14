@@ -8,6 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
+
 @RestController
 @RequestMapping(path = "/user")
 public class UserController {
@@ -22,6 +26,13 @@ public class UserController {
     @GetMapping(path = "users-list")
     public Iterable<User> getAllUsers(){
         return usersService.getAllUsers();
+    }
+
+    @GetMapping(path = "users-list2")
+    public List<User> getAllUsers2(){
+        List<User> result = StreamSupport.stream(usersService.getAllUsers().spliterator(), false)
+                .toList();
+        return result;
     }
 
     @PostMapping(path = "add-user-data")
