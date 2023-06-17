@@ -4,16 +4,20 @@ import com.uep.wap.dto.UserDTO;
 import com.uep.wap.model.User;
 import com.uep.wap.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-@RestController
-@RequestMapping(path = "/user")
+import java.util.ArrayList;
+import java.util.List;
+
+//@RestController
+//@RequestMapping(path = "/user")
+@Controller
 public class UserController {
 
     @Autowired
@@ -23,9 +27,25 @@ public class UserController {
         this.usersService = usersService;
     }
 
-    @GetMapping(path = "users-list")
-    public Iterable<User> getAllUsers(){
-        return usersService.getAllUsers();
+    @GetMapping(path = "/")
+    public String home(Model model) {
+        model.addAttribute("users", usersService.getAllUsers());
+        return "index";
+    }
+
+
+//    @PostMapping(path = "add-new-user")
+//    public String addUserData(@RequestBody UserDTO user, Model model ) {
+//        usersService.addUser(user);
+//        model.addAttribute("user", user);
+//        return "redirect:/";
+//    }
+
+    @GetMapping("/add-new")
+    public String addNewEmployee(Model model) {
+        UserDTO user = new UserDTO();
+        model.addAttribute("user", user);
+        return "new_user";
     }
 
     @GetMapping(path = "users-list2")
@@ -35,13 +55,24 @@ public class UserController {
         return result;
     }
 
-    @PostMapping(path = "add-user-data")
-    public void addUserData(@RequestBody UserDTO user) {
+    @PostMapping("/save")
+    public String saveEmployee(@ModelAttribute("user") UserDTO user) {
         usersService.addUser(user);
+        return "redirect:/";
     }
 
-    @DeleteMapping("/delete-user-data/{id}")
-    public void deleteUser(@PathVariable long id) {
+
+    @GetMapping("/showFormForUpdate/{id}")
+    public String updateForm(@PathVariable(value = "id") @RequestBody UserDTO user, long id, Model model) {
+        usersService.updateUser(id, user);
+        model.addAttribute("user", usersService.getUserById(id));
+        return "update";
+    }
+
+    @GetMapping("/deleteUser/{id}")
+    public String deleteThroughId(@PathVariable(value = "id") long id) {
         usersService.deleteUser(id);
+        return "redirect:/";
+
     }
 }
