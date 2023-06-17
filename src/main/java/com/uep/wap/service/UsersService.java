@@ -15,9 +15,9 @@ public class UsersService {
     private UserRepository userRepository;
 
 
-//    public void saveUser(User user) {
-//        userRepository.save(user);
-//    }
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
 
     public void addUser(UserDTO userDTO) {
         User user = new User();
@@ -35,21 +35,20 @@ public class UsersService {
         return userRepository.findAll();
     }
 
-    public List<User> getAllUsersList() {
-        return userRepository.findAll();
-    }
+//    public List<User> getAllUsersList() {
+//        return userRepository.findAll();
+//    }
 
     public void deleteUser(long id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
-        userRepository.delete(user);
+        userRepository.deleteById(id);
         System.out.println("User deleted!");
     }
 
     public void updateUser(long id, UserDTO userDTO) {
         User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+        user.setUsername(userDTO.getUsername());
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
-        user.setUsername(userDTO.getUsername());
         user.setPassword(userDTO.getPassword());
         user.setEmail(userDTO.getEmail());
         user.setTelephone(userDTO.getTelephone());

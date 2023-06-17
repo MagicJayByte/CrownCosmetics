@@ -44,6 +44,7 @@ public class UserController {
     @GetMapping("/add-new")
     public String addNewEmployee(Model model) {
         UserDTO user = new UserDTO();
+        
         model.addAttribute("user", user);
         return "new_user";
     }
@@ -56,16 +57,16 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public String saveEmployee(@ModelAttribute("user") UserDTO user) {
-        usersService.addUser(user);
+    public String saveEmployee(@ModelAttribute("user") User user) {
+        usersService.saveUser(user);
         return "redirect:/";
     }
 
 
     @GetMapping("/showFormForUpdate/{id}")
-    public String updateForm(@PathVariable(value = "id") @RequestBody UserDTO user, long id, Model model) {
-        usersService.updateUser(id, user);
-        model.addAttribute("user", usersService.getUserById(id));
+    public String updateForm(@PathVariable(value = "id") long id, Model model) {
+        User userToUpdate = usersService.getUserById(id);
+        model.addAttribute("user", userToUpdate);
         return "update";
     }
 
