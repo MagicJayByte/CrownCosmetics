@@ -24,7 +24,7 @@
     <tr th:each="product:${products}">
       <td th:text="${product.name}"></td>
       <td th:text="${product.price}"></td>
-      <td><a th:href="@{/viewProduct/{id}(id=${product.prodId})}" class="btn btn-primary">See Product</a></td>
+      <td><a th:href="@{/view-product/{id}(id=${product.prodId})}" class="btn btn-primary">See Product</a></td>
     </tr>
     </tbody>
   </table>

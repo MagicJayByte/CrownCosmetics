@@ -4,15 +4,16 @@
 <head>
   <meta charset="ISO-8859-1">
 
-  <form action="#" th:action="@{/add-cart-item}" th:object="${cartItem}"
-        method="POST">
-  <input type="text"
-         th:field="*{quantity}"
-         placeholder="quantity"
-         class="form-control mb-4 col-4">
-  </form>
 </head>
 <body>
+<form action="#" th:action="@{/add-cart-item}" th:object="${product}"
+      method="POST">
+  <input type="file" th:field="*{prodImage}" class="form-control mb-4 col-4">
+  <!--         th:="*{prodImage}"-->
+  <!--         placeholder="quantity"-->
+  <!--         class="form-control mb-4 col-4">-->
+<!--</form>-->
+</form>
 </body>
 
 
