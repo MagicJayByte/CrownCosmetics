@@ -30,18 +30,22 @@ public class Product {
     @Column(name="price")
     private float price;
 
+    @Column(name="prod_image")
+    private String prodImage;
+
+
     @Column(name="created_at")
     private Timestamp createdAt;
 
     @Column(name="modified_at")
     private Timestamp modifiedAt;
 
-    @OneToOne
-    @JoinColumn(name = "cart_item_id")
+
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
     private CartItem cartItem;
 
-    @OneToOne
-    @JoinColumn(name = "order_id")
+
+    @OneToOne(mappedBy = "product",cascade = CascadeType.ALL)
     private OrderItems orderItem;
 
     @ManyToOne

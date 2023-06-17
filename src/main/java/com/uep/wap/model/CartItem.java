@@ -28,7 +28,8 @@ public class CartItem {
     @Column(name="modified_at")
     private Timestamp modifiedAt;
 
-    @OneToOne(mappedBy = "cartItem", cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "prod_id")
     private Product product;
 
     @ManyToOne

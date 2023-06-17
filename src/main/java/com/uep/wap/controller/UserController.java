@@ -27,11 +27,11 @@ public class UserController {
         this.usersService = usersService;
     }
 
-    @GetMapping(path = "/")
-    public String home(Model model) {
-        model.addAttribute("users", usersService.getAllUsers());
-        return "index";
-    }
+//    @GetMapping(path = "/")
+//    public String home(Model model) {
+//        model.addAttribute("users", usersService.getAllUsers());
+//        return "index";
+//    }
 
     @GetMapping("/add-new")
     public String addNewUser(Model model) {

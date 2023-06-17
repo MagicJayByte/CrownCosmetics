@@ -22,5 +22,6 @@ public class ShoppingSessionController {
         return shoppingSessionService.getAllShoppingSessions();
     }
 
+
     }
 
