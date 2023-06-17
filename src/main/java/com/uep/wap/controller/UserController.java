@@ -33,27 +33,12 @@ public class UserController {
         return "index";
     }
 
-
-//    @PostMapping(path = "add-new-user")
-//    public String addUserData(@RequestBody UserDTO user, Model model ) {
-//        usersService.addUser(user);
-//        model.addAttribute("user", user);
-//        return "redirect:/";
-//    }
-
     @GetMapping("/add-new")
-    public String addNewEmployee(Model model) {
+    public String addNewUser(Model model) {
         UserDTO user = new UserDTO();
-        
+
         model.addAttribute("user", user);
         return "new_user";
-    }
-
-    @GetMapping(path = "users-list2")
-    public List<User> getAllUsers2(){
-        List<User> result = StreamSupport.stream(usersService.getAllUsers().spliterator(), false)
-                .toList();
-        return result;
     }
 
     @PostMapping("/save")
@@ -74,6 +59,10 @@ public class UserController {
     public String deleteThroughId(@PathVariable(value = "id") long id) {
         usersService.deleteUser(id);
         return "redirect:/";
+    }
 
+    @GetMapping("/login")
+    public String login(){
+        return "login";
     }
 }
