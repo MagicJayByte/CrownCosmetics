@@ -6,14 +6,17 @@
 
 </head>
 <body>
-<form action="#" th:action="@{/add-cart-item}" th:object="${product}"
-      method="POST">
-  <input type="file" th:field="*{prodImage}" class="form-control mb-4 col-4">
-  <!--         th:="*{prodImage}"-->
-  <!--         placeholder="quantity"-->
-  <!--         class="form-control mb-4 col-4">-->
-<!--</form>-->
+<h1 th:inline="text" >
+  [[${product.desc}]]
+</h1>
+<form action="#" th:action="@{/save-cart-item}" th:object="${cartItem}" method="POST">
+  <input type="text"
+         th:field="*{quantity}"
+         placeholder="Quantity"
+         class="form-control mb-4 col-4">
+  <button type="submit" class="btn btn-info col-2">Add to Cart</button>
 </form>
+<a th:href="@{/}"> Back to User List</a>
 </body>
 
 

@@ -60,8 +60,9 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("/login")
-    public String login(){
+    @GetMapping("/login/{id}")
+    public String login(@PathVariable(value="id") long id, Model model){
+        model.addAttribute()
         return "login";
     }
 

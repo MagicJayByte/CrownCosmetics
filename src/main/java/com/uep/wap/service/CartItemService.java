@@ -1,5 +1,6 @@
 package com.uep.wap.service;
 
+import com.uep.wap.controller.ShoppingSessionController;
 import com.uep.wap.dto.CartItemDTO;
 import com.uep.wap.model.*;
 import com.uep.wap.repository.CartItemRepository;
@@ -35,6 +36,12 @@ public class CartItemService {
             inventory.setQuantity(inventory.getQuantity() - numItems);
             shoppingSession.setTotal(product.getPrice()*numItems);
         }
+    }
+
+    public void saveCartItem(CartItem cartItem, Product product) {
+        cartItem.setProduct(product);
+        cartItemRepository.save(cartItem);
+        System.out.println("cartItem added!");
     }
 
 //    public CartItem createCartItem(Model model) {

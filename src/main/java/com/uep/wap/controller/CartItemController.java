@@ -25,14 +25,11 @@ public class CartItemController {
     @GetMapping(path="cart-items")
     public Iterable<CartItem> getAllCartItems() {return cartItemService.getAllCartItems();}
 
-    @GetMapping(path="add-cart-item")
-    public String addCartItem(Model model) {
-        CartItemDTO cartItemDTO = new CartItemDTO();
-        model.addAttribute("cartItem", cartItemDTO);
+    @PostMapping(path="/save-cart-item")
+    public String addCartItem(@ModelAttribute("cartItem") CartItem cartItem, @ModelAttribute("product") Product product) {
+        cartItemService.saveCartItem(cartItem, product);
         return "product_view";
     }
-
-
     }
 
 
