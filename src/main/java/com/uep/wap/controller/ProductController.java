@@ -7,6 +7,9 @@ import com.uep.wap.model.Product;
 import com.uep.wap.model.ShoppingSession;
 import com.uep.wap.model.User;
 import com.uep.wap.service.ProductService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,8 +26,8 @@ public class ProductController {
     @GetMapping(path = "/")
     public String home(Model model) {
         model.addAttribute("products", productService.getAllProducts());
-        return "shop";
-    }
+        return "shop";}
+
 
     @PostMapping(path = "/add-product-data")
     public void addProduct(@RequestBody ProductDTO product) {
@@ -39,6 +42,7 @@ public class ProductController {
         model.addAttribute("cartItem", cartItemToCreate);
         return "product_view";
     }
+
 
 
 

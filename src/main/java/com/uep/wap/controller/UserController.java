@@ -24,6 +24,7 @@ public class UserController {
         this.usersService = usersService;
     }
 
+
     @PostMapping("/save")
     public String saveEmployee(@ModelAttribute("user") User user) {
         usersService.saveUser(user);
@@ -60,9 +61,8 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("/login/{id}")
-    public String login(@PathVariable(value="id") long id, Model model){
-        model.addAttribute()
+    @GetMapping("/login")
+    public String login() {
         return "login";
     }
 
@@ -84,4 +84,5 @@ public class UserController {
         }
         return "user_view";
     }
+
 }
