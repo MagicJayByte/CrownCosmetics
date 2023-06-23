@@ -19,9 +19,9 @@
     <tr>
       <th>User Name</th>
       <th>Password</th>
-      <th>E-mail</th>
       <th>First Name</th>
       <th>Last Name</th>
+      <th>E-mail</th>
       <th>Telephone</th>
     </tr>
     </thead>
@@ -29,9 +29,9 @@
     <tr th:each="user:${users}">
       <td th:text="${user.username}"></td>
       <td th:text="${user.password}"></td>
-      <td th:text="${user.email}"></td>
       <td th:text="${user.firstName}"></td>
       <td th:text="${user.lastName}"></td>
+      <td th:text="${user.email}"></td>
       <td th:text="${user.telephone}"></td>
       <td> <a th:href="@{/showFormForUpdate/{id}(id=${user.id})}" class="btn btn-primary">Update</a>
 

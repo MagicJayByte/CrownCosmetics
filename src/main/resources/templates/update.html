@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="ISO-8859-1">
+  <meta charset="UTF-8">
   <title>User Management System</title>
 
   <link rel="stylesheet"
@@ -18,11 +18,17 @@
 
     <!-- Add hidden form field to handle update -->
     <input type="hidden" th:field="*{id}" />
+    <a>Nazwa użytkownika</a>
     <input type="text" th:field="*{username}" class="form-control mb-4 col-4">
+    <a>Hasło</a>
     <input type="text" th:field="*{password}" class="form-control mb-4 col-4">
+    <a>Adres e-mail</a>
     <input type="text" th:field="*{email}" class="form-control mb-4 col-4">
+    <a>Imię</a>
     <input type="text" th:field="*{firstName}" class="form-control mb-4 col-4">
+    <a>Nazwisko</a>
     <input type="text" th:field="*{lastName}" class="form-control mb-4 col-4">
+    <a>Numer telefonu</a>
     <input type="text" th:field="*{telephone}" class="form-control mb-4 col-4">
 
     <button type="submit" class="btn btn-info col-2"> Update Employee</button>

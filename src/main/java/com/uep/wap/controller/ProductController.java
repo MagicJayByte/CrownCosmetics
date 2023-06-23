@@ -18,12 +18,6 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping(path = "/products")
-    public String getAllProducts(Model model) {
-        model.addAttribute("products", productService.getAllProducts());
-        return "shop";
-    }
-
     @GetMapping(path = "/")
     public String home(Model model) {
         model.addAttribute("products", productService.getAllProducts());

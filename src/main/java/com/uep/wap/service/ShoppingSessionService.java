@@ -6,6 +6,8 @@ import com.uep.wap.repository.ShoppingSessionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ShoppingSessionService {
 
@@ -21,5 +23,9 @@ public class ShoppingSessionService {
 
     public Iterable<ShoppingSession> getAllShoppingSessions() {
         return shoppingSessionRepository.findAll();
+    }
+
+    public Optional<ShoppingSession> getShoppingSessionById(Integer id) {
+        return shoppingSessionRepository.findById(id);
     }
 }
